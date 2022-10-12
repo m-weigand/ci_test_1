@@ -3,7 +3,6 @@ cd /root/kernel
 
 if [ ! -d linux ]; then
 	git clone --depth 1 --branch mw/rk35/pinenote-next-t1 https://github.com/m-weigand/linux
-    cd ..
 fi
 
 cd linux
