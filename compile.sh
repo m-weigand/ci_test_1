@@ -16,5 +16,5 @@ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_PATH=${PWD}/pack dtbs_i
 cp ./arch/arm64/boot/dts/rockchip/rk3566-pinenote-v1.2.dtb pack/
 cp ./arch/arm64/boot/Image pack/
 cd ..
-cp -r pack /github/home
+cp -r linux/pack /github/home
 
