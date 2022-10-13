@@ -9,14 +9,17 @@ if [ ! -d mutter ]; then
 fi
 
 cd mutter
-# time DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -nc --build=binary
+# time DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage --build=binary
 cd ..
 
+test -d mutter_arm64_debs && rm -r mutter_arm64_debs
 mkdir mutter_arm64_debs
 echo "huhu" >  mutter_arm64_debs/asdasd.txt
 # mv *.deb mutter_arm64_debs/
 
 echo "moving directory"
+
+test -d /github/home/mutter_arm64_debs && rm -r /github/home/mutter_arm64_debs
 
 mv mutter_arm64_debs /github/home
 
