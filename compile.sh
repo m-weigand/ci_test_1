@@ -15,6 +15,10 @@ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=${PWD}/pack mo
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_PATH=${PWD}/pack dtbs_install
 cp ./arch/arm64/boot/dts/rockchip/rk3566-pinenote-v1.2.dtb pack/
 cp ./arch/arm64/boot/Image pack/
-cd ..
-cp -r linux/pack /github/home
+cd pack
+tar cvf modules.tar.gz lib
+rm -r lib
+cd ../..
 
+# extract the results from the Docker container
+cp -r linux/pack /github/home
