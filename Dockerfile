@@ -1,16 +1,9 @@
-FROM debian:bullseye
+# Container image that runs your code
+# FROM alpine:3.10
+FROM arm64v8/debian:bookworm
 
-RUN apt -y update
-RUN apt -y upgrade
-RUN apt -y install git vim
-RUN apt -y install build-essential linux-source bc kmod cpio flex libncurses5-dev libelf-dev libssl-dev dwarves bison
-RUN apt -y install gcc-aarch64-linux-gnu
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
 
-RUN mkdir /root/kernel
-COPY compile.sh /root/kernel/
-
-ENTRYPOINT /root/kernel/compile.sh
-
-# WORKDIR /root/mesa
-# CMD /root/mesa/compile.sh
-
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT /entrypoint.sh
