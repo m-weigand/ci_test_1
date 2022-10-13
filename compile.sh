@@ -1,4 +1,5 @@
 #!/bin/bash
+env
 cd /root/mutter
 
 if [ ! -d mutter ]; then
