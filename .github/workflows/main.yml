@@ -6,17 +6,12 @@ on:
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Compile the pinenote kernel
     steps:
-      - name: Hello world action step
-        id: hello
+      - name: Docker-based compilation
+        id: compile-kernel-in-docker
         uses: m-weigand/ci_test_1@main
-        # with:
-        #   who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      # - name: Get the output time
-      #   run: echo "The time was ${{ steps.hello.outputs.time }}"
       - uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
+          name: pinenote_kernel_modules_dtb
           path: /home/runner/work/_temp/_github_home/pack/
