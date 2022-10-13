@@ -16,4 +16,8 @@ mkdir mutter_arm64_debs
 echo "huhu" >  mutter_arm64_debs/asdasd.txt
 # mv *.deb mutter_arm64_debs/
 
+echo "moving directory"
+
 mv mutter_arm64_debs /github/home
+
+ls /github/home/
