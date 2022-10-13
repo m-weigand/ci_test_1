@@ -16,4 +16,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: mutter
-          path: /home/runner/work/_temp/_github_home/mutter_arm64_debs
+          path: ${{ runner.temp }}/_github_home/mutter_arm64_debs
