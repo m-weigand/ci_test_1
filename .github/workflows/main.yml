@@ -15,4 +15,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: pinenote_kernel_modules_dtb
-          path: /home/runner/work/_temp/_github_home/pack/
+          path: /home/runner/work/_temp/_github_home/mutter_arm64_debs

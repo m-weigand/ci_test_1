@@ -1,9 +1,18 @@
-# Container image that runs your code
-# FROM alpine:3.10
 FROM arm64v8/debian:bookworm
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+RUN echo 'deb-src http://deb.debian.org/debian bookworm main' >> /etc/apt/sources.list
+RUN echo 'deb-src http://deb.debian.org/debian-security bookworm-security main' >> /etc/apt/sources.list
+RUN echo 'deb-src http://deb.debian.org/debian bookworm-updates main' >> /etc/apt/sources.list
+RUN apt update
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT /entrypoint.sh
+RUN apt -y upgrade
+RUN apt -y install vim-nox git
+
+RUN apt -y build-dep mutter
+
+RUN mkdir /root/mutter
+COPY *.patch /root/mutter/
+COPY compile.sh /root/mutter/
+
+ENTRYPOINT /root/mutter/compile.sh
+
