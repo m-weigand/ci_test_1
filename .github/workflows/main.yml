@@ -9,13 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     name: test releases
     steps:
-      - name: create dummy file
+      - name: get pwd
         run: pwd
+      - name: create dummy file
+        run: echo "Hi there" > relase_binary_dummy
       - name: Upload files
         uses: actions/upload-artifact@v3
         with:
           name: dummy_file
-          path: ${{ runner.temp }}/_github_home/mutter_arm64_debs
+          path: release_binary_dummy
 #     runs-on: self-hosted
 #     # runs-on: ubuntu-latest
 #     name: Compile the pinenote kernel
