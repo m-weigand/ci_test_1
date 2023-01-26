@@ -20,21 +20,22 @@ jobs:
         with:
           name: dummy_file
           path: release_binary_dummy
-#     runs-on: self-hosted
-#     # runs-on: ubuntu-latest
-#     name: Compile the pinenote kernel
-#     steps:
-#       # - name: some apt
-#       #   run: sudo apt-get update
-#       # - name: some apt
-#       #   run: sudo apt-get install qemu binfmt-support qemu-user-static
-#       - name: Docker-based compilation
-#         id: compile-kernel-in-docker
-#         uses: m-weigand/ci_test_1@main
-#       - name: Print environemnt
-#         run: env
-#       # - name: Upload files
-#       #   uses: actions/upload-artifact@v3
-#       #   with:
-#       #     name: mutter
-#       #     path: ${{ runner.temp }}/_github_home/mutter_arm64_debs
+    draft_release_job:
+      # if: startsWith(github.ref, 'refs/tags/')
+      # if: contains(github.ref, "main")
+      runs-on: ubuntu-latest
+      needs:
+        - hello_world_job
+      steps:
+        - name: Clone workflow repository
+          uses: actions/checkout@v3
+        - name: Download image artifacts
+          uses: actions/download-artifact@v3
+          with:
+            path: artifacts/
+        - name: Make release
+          uses: softprops/action-gh-release@v0.1.15
+          with:
+            draft: true
+            files: |
+              artifacts/release_binary_dummy
