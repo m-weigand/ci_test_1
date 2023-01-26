@@ -1,11 +1,21 @@
-# on:
-#   push:
-#     branches:
-#       - main
-#   workflow_dispatch:
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-# jobs:
-#   hello_world_job:
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: test releases
+    steps:
+      - name: create dummy file
+        run: pwd
+      - name: Upload files
+        uses: actions/upload-artifact@v3
+        with:
+          name: dummy_file
+          path: ${{ runner.temp }}/_github_home/mutter_arm64_debs
 #     runs-on: self-hosted
 #     # runs-on: ubuntu-latest
 #     name: Compile the pinenote kernel
