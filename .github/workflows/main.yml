@@ -42,4 +42,4 @@ jobs:
         with:
           draft: true
           files: |
-            artifacts/dummy_file/*
+            artifacts/dummy_file/release_binary_dummy
