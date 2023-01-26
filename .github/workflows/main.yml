@@ -12,7 +12,7 @@ jobs:
       - name: get pwd
         run: pwd
       - name: create dummy file
-        run: touch release_binary_dummy
+        run: bash -c "echo test > release_binary_dummy"
       - name: ls
         run: ls
       - name: Upload files
