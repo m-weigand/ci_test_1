@@ -12,7 +12,9 @@ jobs:
       - name: get pwd
         run: pwd
       - name: create dummy file
-        run: echo "Hi there" > relase_binary_dummy
+        run: touch release_binary_dummy
+      - name: ls
+        run: ls
       - name: Upload files
         uses: actions/upload-artifact@v3
         with:
