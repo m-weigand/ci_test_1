@@ -28,7 +28,7 @@ jobs:
       - name: Prepare environment
         run: |
           sudo apt-get update
-          sudo apt-get -y install build-essential crossbuild-essential-arm64 device-tree-compiler
+          sudo apt-get -y install build-essential crossbuild-essential-arm64 device-tree-compiler python3-pyelftools
       - name: Checkout rkbin
         run: |
           test -d rkbin || git clone --depth 1 --branch master https://github.com/rockchip-linux/rkbin.git
