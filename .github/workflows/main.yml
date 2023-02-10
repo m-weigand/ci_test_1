@@ -44,9 +44,9 @@ jobs:
         with:
           name: uboot files
           path: |
-            uboot.img
-            trust.img
-            idblock.bin
+            u-boot-pinenote/uboot.img
+            u-boot-pinenote/trust.img
+            u-boot-pinenote/idblock.bin
 
 # cd ..
 # test -d artifacts && rm -r artifacts
