@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: matrix test
     steps:
+      - uses: actions/checkout@v3
       - name: ECHO
         run: echo ${{matrix.partitions}}
       - name: SHELL
