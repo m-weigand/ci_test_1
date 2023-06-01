@@ -18,9 +18,9 @@ jobs:
       - name: SHELL
         run: bash test_matrix.sh ${{matrix.partitions}}
       - name: replace
-        run: sed -i s/U_BOOT_ROOT="root=\/dev\/mmcblk0p8"/U_BOOT_ROOT="root=\/dev\/mmcblk0p${{matrix.patition}}"/ u-boot
-      - name: cat
-        run: cat u-boot
+        run: sed s/U_BOOT_ROOT="root=\/dev\/mmcblk0p8"/U_BOOT_ROOT="root=\/dev\/mmcblk0p${{matrix.partitions}}"/ u-boot
+      # - name: cat
+      #   run: cat u-boot
 
   # hello_world_job:
   #   runs-on: ubuntu-latest
