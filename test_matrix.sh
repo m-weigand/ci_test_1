@@ -1,5 +1,4 @@
 #!/bin/bash
 #
-env
-
-echo "PARTITION" ${{matrix.partition}}
+echo "TEST"
+echo "PARTITIOn $1"
