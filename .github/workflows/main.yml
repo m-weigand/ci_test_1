@@ -18,7 +18,12 @@ jobs:
       - name: SHELL
         run: bash test_matrix.sh ${{matrix.partitions}}
       - name: replace
-        run: sed 's/U_BOOT_ROOT="root=\/dev\/mmcblk0p8"/U_BOOT_ROOT="root=\/dev\/mmcblk0p${{matrix.partitions}}"/' u-boot
+        run: sed -i 's/U_BOOT_ROOT="root=\/dev\/mmcblk0p8"/U_BOOT_ROOT="root=\/dev\/mmcblk0p${{matrix.partitions}}"/' u-boot
+      - name: Upload files
+        uses: actions/upload-artifact@v3
+        with:
+          name: u-boot-partition-${{matrix.partitions}}
+          path: u-boot
       # - name: cat
       #   run: cat u-boot
 
