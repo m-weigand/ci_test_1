@@ -14,7 +14,8 @@ jobs:
     steps:
       - name: ECHO
         run: echo ${{matrix.partitions}}
-
+      - name: SHELL
+        run: bash test_matrix.sh
 
 
   # hello_world_job:
